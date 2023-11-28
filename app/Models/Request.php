@@ -13,7 +13,7 @@ class Request extends Model
     use Uuids;
 
     protected $table = 'requests';
-    protected $fillable = ['origin_id','request_url','request_ip','request_data','request_detail','request_query_string','request_headers','request_body','body_raw','status','request_method'];
+    protected $fillable = ['origin_id','request_url','request_ip','request_data','request_detail','request_query_string','request_headers','request_body','request_raw_data','status','request_method'];
 
     protected $casts = [
       'request_data' => 'json',
@@ -35,4 +35,5 @@ class Request extends Model
     {
         return $this->hasOne('App\Models\Origin','id','origin_id')->withTrashed();
     }
+
 }

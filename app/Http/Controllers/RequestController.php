@@ -26,7 +26,7 @@ class RequestController extends Controller
         $data['request_query_string'] = [];
         parse_str($request->getQueryString(), $data['request_query_string']);
         $data['request_body'] = $request->post();
-        $data['body_raw'] = $request->getContent();
+        $data['request_raw_data'] = $request->getContent();
         $data['request_headers'] = collect($request->header())->map(function($header){
             return $header[0];
         })->toArray();
