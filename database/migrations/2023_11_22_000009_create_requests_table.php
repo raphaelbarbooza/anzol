@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('requests', function (Blueprint $table) {
             $table->uuid('id')->unique()->primary();
             $table->timestamps();
-            $table->foreignId('origin_id')->references('id')->on('origins');
+            $table->foreignUuid('origin_id')->references('id')->on('origins');
             $table->string('request_url');
             $table->ipAddress('request_ip');
             $table->mediumText('request_data');
